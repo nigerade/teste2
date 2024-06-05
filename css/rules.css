@@ -1,0 +1,98 @@
+:root {
+    --bg-main: #39056d;
+    --bg-button: #fa9f34;
+    --bg-button-hover: #fdaa4a;
+    --color-text: #fff;
+    --color-btn: #424242;
+    --color-btn-hover: #585757;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.rulesPage {
+    width: 80%;
+    max-width: 1200px;
+    overflow-y: auto; /* Alterado para auto para permitir a rolagem quando necessário */
+    padding-top: 50px;
+    padding-bottom: 20px; /* Adicionado espaço no final para evitar que o conteúdo fique oculto atrás da barra de rolagem */
+}
+
+.backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.backButton i {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.backButton:hover {
+    transform: scale(1.2);
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    /* Adicionado para separar do subtexto */
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.contentContainer {
+    text-align: center; /* Alterado para centralizar o texto horizontalmente */
+    width: 100%;
+    
+    padding-bottom: 20px;
+    display: flex; /* Adicionado display flex */
+    flex-direction: column; /* Adicionado flex-direction column para centralizar verticalmente */
+    align-items: center; /* Adicionado align-items center para centralizar verticalmente */
+}
+
+
+.contentContainer h3 {
+    font-size: 25px;
+    margin-top: 40px;
+}
+
+.contentContainer p {
+    font-size: 18px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}

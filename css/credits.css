@@ -1,0 +1,104 @@
+:root {
+    --bg-main: #39056d;
+    --bg-button: #fa9f34;
+    --bg-button-hover: #fdaa4a;
+    --color-text: #fff;
+    --color-btn: #424242;
+    --color-btn-hover: #585757;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.creditsPage {
+    width: 80%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: var(--color-btn);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 3rem;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.backButton img {
+    width: 20px;
+    height: 20px;
+}
+
+.backButton:hover {
+    transform: scale(1.2);
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.participantsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.participant {
+    background-color: var(--bg-button);
+    color: var(--color-btn);
+    width: 200px;
+    height: 100px;
+    /* Diminuí a altura */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.participant:hover {
+    background-color: var(--bg-button-hover);
+    color: var(--color-btn-hover);
+}

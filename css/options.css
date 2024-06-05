@@ -1,0 +1,113 @@
+:root {
+    --bg-main: #39056d;
+    --bg-button: #fa9f34;
+    --bg-button-hover: #fdaa4a;
+    --color-text: #fff;
+    --color-btn: #424242;
+    --color-btn-hover: #585757;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.optionsPage {
+    width: 80%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.backButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.backButton i {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.backButton:hover {
+    transform: scale(1.2);
+}
+
+.optionsContainer {
+    margin-top: 40px;
+}
+
+.option {
+    margin-bottom: 20px;
+}
+
+.option label {
+    margin-right: 10px;
+}
+
+.buttonsContainer {
+    margin-top: 50px;
+}
+
+.skinStoreButton, .privacyPolicyButton {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: var(--bg-button);
+    color: var(--color-btn);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.skinStoreButton:hover, .privacyPolicyButton:hover {
+    background-color: var(--bg-button-hover);
+    color: var(--color-btn-hover);
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
