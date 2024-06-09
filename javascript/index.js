@@ -1,155 +1,192 @@
-// dont start the game and timer if game is not started yet
-let isGameStarted = true;
-
-// put your questions in array with JSON object
-// do not put 0 to ID => start from 1 and more // Make sure each ID is uniqe
-// id will help us to track which question we are working on.
-let questions = [
-  {
-    id: 1,
-    question: "What color is sky?",
-    answer: "blue",
-    isAnswered: false,
-    userInput: "",
-  },
-  {
-    id: 2,
-    question: "If you freeze water, what do you get?",
-    answer: "ice",
-    isAnswered: false,
-    userInput: "",
-  },
-  {
-    id: 3,
-    question: "Which state is famous for Hollywood?",
-    answer: "California",
-    isAnswered: false,
-    userInput: "",
-  },
-  {
-    id: 4,
-    question: "How many pairs of wings do bees have?",
-    answer: "Two",
-    isAnswered: false,
-    userInput: "",
-  },
-  {
-    id: 5,
-    question: "Where is the Great Pyramid of Giza?",
-    answer: "Egypt",
-    isAnswered: false,
-    userInput: "",
-  },
+const questions = [
+  { id: 1, question: "What color is the sky?", answer: "blue" },
+  { id: 2, question: "If you freeze water, what do you get?", answer: "ice" },
+  { id: 3, question: "Which state is famous for Hollywood?", answer: "California" },
+  { id: 4, question: "How many pairs of wings do bees have?", answer: "Two" },
+  { id: 5, question: "Where is the Great Pyramid of Giza?", answer: "Egypt" },
 ];
 
-let currentQuestion = 0;
-
-// Score
-let score = 0;
-
-// coundown game time second
-let time = 60;
-let timeID = 0;
-
-// Document Elements
-const divQuestion = document.querySelector(".question");
-const inpUser = document.querySelector("#userInput");
-let btnSubmit = document.querySelector(".submit");
-let divScore = document.querySelector(".score");
-let divTimer = document.querySelector(".timer");
-let audio = document.getElementById("audio");
-
-// Get the modal
-var modal = document.getElementById("myModal");
-
-// events
-btnSubmit.addEventListener("click", () => onSubmit());
-inpUser.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    onSubmit();
-  }
-});
-
-const displayNextQuestion = () => {
-  // get unAnswered awaiting questions
-  const nextQuestion = questions.filter((question) => !question.isAnswered);
-  // if all questions answered go to result page
-  if (!nextQuestion || nextQuestion.length < 1) {
-    return (window.location.href = `./result.html?score=${score}&total=${questions.length}`);
-  }
-
-  // Random question
-  // display random question if unAnswered questions are more then 1
-  if (nextQuestion.length > 1) {
-    const randomIndex = generateRandomNumber(nextQuestion.length);
-    divQuestion.textContent = nextQuestion[randomIndex].question;
-    currentQuestion = nextQuestion[randomIndex].id;
-    return nextQuestion[randomIndex];
-  }
-
-  divQuestion.textContent = nextQuestion[0].question;
-  currentQuestion = nextQuestion[0].id;
-  return nextQuestion[0];
+// Game state
+let players = {
+  player1: { score: 0, isConnected: false, isGameStarted: false },
+  player2: { score: 0, isConnected: false, isGameStarted: false },
 };
+let currentQuestionIndex = 0;
+let timerInterval;
+const initialTime = 60;
+let remainingTime = initialTime;
 
-const timerStart = () => {
-  if (!isGameStarted) return clearInterval(timeID);
-  timeID = setInterval(() => {
-    time = time - 1;
-    divTimer.textContent = time;
+// Elements
+const audio = document.getElementById("audio");
+const modal = document.getElementById("myModal");
+const questionElem = document.querySelector(".question");
+const userInputElem = document.getElementById("userInput");
+const submitButton = document.querySelector(".submit");
+const timerElem = document.querySelector(".timer");
+const gameContainer = document.getElementById("gameContainer");
+const waitingRoom = document.getElementById("waitingRoom");
 
-    // stop timer when hits 0
-    if (time === 0) {
-      isGameStarted = false;
-      modal.style.display = "block";
-      clearInterval(timeID);
+// Shuffle and store questions in localStorage
+function shuffleAndStoreQuestions() {
+  const shuffledQuestions = [...questions];
+  for (let i = shuffledQuestions.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledQuestions[i], shuffledQuestions[j]] = [shuffledQuestions[j], shuffledQuestions[i]];
+  }
+  localStorage.setItem('questions', JSON.stringify(shuffledQuestions));
+}
+
+// Retrieve questions from localStorage
+function getStoredQuestions() {
+  return JSON.parse(localStorage.getItem('questions'));
+}
+
+// Simulate player connection
+function connectPlayer(playerKey) {
+  players[playerKey].isConnected = true;
+  checkAllPlayersConnected();
+}
+
+// Check if both players are connected
+function checkAllPlayersConnected() {
+  if (players.player1.isConnected && players.player2.isConnected) {
+    waitingRoom.style.display = "none";
+    gameContainer.style.display = "block";
+    startGame();
+  }
+}
+
+// Start the game
+function startGame() {
+  if (!localStorage.getItem('questions')) {
+    shuffleAndStoreQuestions();
+  }
+  players.player1.isGameStarted = true;
+  players.player2.isGameStarted = true;
+  displayNextQuestion();
+  startTimer();
+}
+
+// Display next question
+function displayNextQuestion() {
+  const storedQuestions = getStoredQuestions();
+  if (currentQuestionIndex >= storedQuestions.length) {
+    endGame();
+    return;
+  }
+  const question = storedQuestions[currentQuestionIndex];
+  questionElem.textContent = question.question;
+}
+
+// Start the timer
+function startTimer() {
+  remainingTime = initialTime;
+  timerElem.textContent = remainingTime;
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    remainingTime--;
+    timerElem.textContent = remainingTime;
+    
+    if (remainingTime <= 0) {
+      clearInterval(timerInterval);
+      endGameDueToTime();
     }
   }, 1000);
-};
+}
 
-// on button Click
-const onSubmit = () => {
-  soundClicked();
+// Submit answer
+submitButton.addEventListener("click", onSubmit);
+userInputElem.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") onSubmit();
+});
 
-  if (inpUser.value.length < 1 || inpUser.value === "" || inpUser.value === " ")
-    return null;
-  if (!isGameStarted) return null;
-  questions.map((question) => {
-    if (question.id !== currentQuestion) return null;
-    question.userInput = inpUser.value;
-    question.isAnswered = true;
+function onSubmit() {
+  playSound();
+  const userAnswer = userInputElem.value.trim();
+  if (!userAnswer) return;
 
-    // update answer
-    const isAnswerCorrect = checkAnswer(question.answer, inpUser.value);
-    if (isAnswerCorrect) score++;
+  const storedQuestions = getStoredQuestions();
+  const correctAnswer = storedQuestions[currentQuestionIndex].answer;
+  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+    players.player1.score++;
+    players.player2.score++;
+  }
 
-    // clear input
-    inpUser.value = "";
-    // focus to input after submit button clicked
-    inpUser.focus();
-  });
+  userInputElem.value = "";
+  currentQuestionIndex++;
+  if (currentQuestionIndex < storedQuestions.length) {
+    displayNextQuestion();
+    resetTimer();
+  } else {
+    endGame();
+  }
+}
 
-  displayNextQuestion();
-};
+// Reset the timer
+function resetTimer() {
+  clearInterval(timerInterval);
+  remainingTime = initialTime;
+  startTimer();
+}
 
-// Check user answer and update the data.
-const checkAnswer = (correctAnswer, userAnswer) => {
-  if (correctAnswer.toLowerCase() === userAnswer.toLowerCase()) return true;
-  return false;
-};
+// End game due to time over
+function endGameDueToTime() {
+  players.player1.isGameStarted = false;
+  players.player2.isGameStarted = false;
+  showTimeOverMessage();
+}
 
-// button click sound
-const soundClicked = () => {
+function showTimeOverMessage() {
+  const resultDiv = document.querySelector(".result-announcement");
+  resultDiv.innerHTML = `
+    <h2>Time Over</h2>
+    <p>You ran out of time!</p>
+    <a href="./game.html" class="btn-again">Play Again</a>
+  `;
+  modal.style.display = "block";
+}
+
+// End game and show results
+function endGame() {
+  players.player1.isGameStarted = false;
+  players.player2.isGameStarted = false;
+  showResults();
+}
+
+function showResults() {
+  const resultDiv = document.querySelector(".result-announcement");
+  let resultMessage = "";
+  if (players.player1.score > players.player2.score) {
+    resultMessage = `Player 1 wins with ${players.player1.score} correct answers!`;
+  } else if (players.player1.score < players.player2.score) {
+    resultMessage = `Player 2 wins with ${players.player2.score} correct answers!`;
+  } else {
+    resultMessage = "It's a tie!";
+  }
+  resultDiv.innerHTML = `
+    <h2>Game Over</h2>
+    <p>${resultMessage}</p>
+    <a href="./game.html" class="btn-again">Play Again</a>
+  `;
+  modal.style.display = "block";
+}
+
+// Play sound on submit
+function playSound() {
   audio.pause();
-  audio.currentTime = -1;
+  audio.currentTime = 0;
   audio.play();
-};
+}
 
-// Random number for random question
-const generateRandomNumber = (limit) => {
-  return Math.floor(Math.random() * limit);
-};
+// Initialize game
+function initializeGame() {
+  if (!localStorage.getItem('questions')) {
+    shuffleAndStoreQuestions();
+  }
 
-displayNextQuestion();
-timerStart();
-inpUser.value = "";
+  // Simulate player connections (for testing)
+  setTimeout(() => connectPlayer("player1"), 1000);
+  setTimeout(() => connectPlayer("player2"), 2000);
+}
+
+initializeGame();
