@@ -33,9 +33,11 @@ body {
 .rulesPage {
     width: 80%;
     max-width: 1200px;
-    overflow-y: auto; /* Alterado para auto para permitir a rolagem quando necessário */
+    overflow-y: auto;
+    /* Alterado para auto para permitir a rolagem quando necessário */
     padding-top: 50px;
-    padding-bottom: 20px; /* Adicionado espaço no final para evitar que o conteúdo fique oculto atrás da barra de rolagem */
+    padding-bottom: 20px;
+    /* Adicionado espaço no final para evitar que o conteúdo fique oculto atrás da barra de rolagem */
 }
 
 .backButton {
@@ -73,30 +75,34 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5rem !important;
+    font-size: 2.2rem !important;
     letter-spacing: .1em;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 h3 {
     font-size: 2.5rem !important;
     letter-spacing: .1em;
-    
 }
 
 p {
-    font-size: 1.3rem !important; 
+    font-size: 1.3rem !important;
 }
 
 .contentContainer {
-    text-align: justify; /* Alterado para centralizar o texto horizontalmente */
+    text-align: justify;
+    /* Alterado para centralizar o texto horizontalmente */
     width: 90%;
     background-color: #2250D5;
     border-radius: 35px;
     border: 5px solid #fff;
     padding: 2rem;
     margin: auto;
-    display: flex; /* Adicionado display flex */
-    flex-direction: column; /* Adicionado flex-direction column para centralizar verticalmente */
+    display: flex;
+    /* Adicionado display flex */
+    flex-direction: column;
+    /* Adicionado flex-direction column para centralizar verticalmente */
     line-height: 1.5;
 }
 

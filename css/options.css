@@ -27,6 +27,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    text-shadow: 2px 2px 2px #333;
 }
 
 .optionsPage {
@@ -79,14 +80,14 @@ body {
     padding: 15px 30px;
     font-size: 20px;
     background-color: var(--bg-button);
-    color: var(--color-btn);
+    color: var(--color-text);
     border-radius: 10px;
     transition: all 0.3s ease;
 }
 
 .skinStoreButton:hover, .privacyPolicyButton:hover {
     background-color: var(--bg-button-hover);
-    color: var(--color-btn-hover);
+    transform: scale(1.06);
 }
 
 .option {
@@ -103,11 +104,11 @@ body {
 }
 
 h1 {
-    font-size: 50px;
-    margin-bottom: 10px;
+    font-size: 5rem;
+    letter-spacing: .1em;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 2.5rem;
     margin-bottom: 20px;
 }

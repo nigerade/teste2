@@ -28,6 +28,7 @@ body {
     justify-content: center;
     text-align: center;
     letter-spacing: .1em;
+    text-shadow: 2px 2px 2px #333;
 }
 
 .creditsPage {
@@ -89,7 +90,6 @@ h2 {
 
 .participant {
     background-color: var(--bg-button);
-    color: var(--color-btn);
     width: 200px;
     height: 100px;
     /* Diminuí a altura */
@@ -109,5 +109,5 @@ h2 {
 }
 
 .participantLink {
-    color: var(--color-btn);
+    color: var(--color-text);
 }
