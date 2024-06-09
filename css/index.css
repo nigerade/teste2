@@ -1,5 +1,10 @@
+@font-face {
+  font-family: Honey Crepes;
+  src: url(../fonts/Honey\ Crepes.ttf);
+}
+
 :root {
-  --bg-main: #39056d;
+  --bg-main: #2972FC;
   --bg-question: #f3be80;
   --bg-button: #fa9f34;
   --bg-button-hover: #fdaa4a;
@@ -37,6 +42,7 @@ html {
 body {
   position: relative;
   background-color: var(--bg-main);
+  font-family: Super Creamy;
   overflow: hidden;
   width: 100%;
   min-height: 100vh;
@@ -80,6 +86,7 @@ body {
 
 .game .timeCountdown .timeDetails .time-seconds {
   color: var(--color-time-left);
+  font-family: 'Honey Crepes';
 }
 
 .game .timeCountdown .timeDetails .timer {

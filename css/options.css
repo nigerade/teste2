@@ -1,5 +1,5 @@
 :root {
-    --bg-main: #39056d;
+    --bg-main: #2972FC;
     --bg-button: #fa9f34;
     --bg-button-hover: #fdaa4a;
     --color-text: #fff;
@@ -20,7 +20,7 @@ a {
 body {
     background-color: var(--bg-main);
     color: var(--color-text);
-    font-family: Arial, sans-serif;
+    font-family: Super Creamy;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
