@@ -47,6 +47,7 @@ body {
   width: 100%;
   min-height: 100vh;
   height: 100vh;
+  letter-spacing: .1em;
 }
 
 .game {
@@ -155,14 +156,17 @@ body {
   align-items: center;
   font-size: 40px;
   color: var(--color-btn);
+  transition: all .45s ease;
+}
+
+.submit {
+  font-size: 2rem !important;
+  transition: all .45s ease;
 }
 
 .game .answer .submit:hover {
-  background-color: var(--bg-button-hover);
-  color: var(--color-btn-hover);
-  width: 210px;
-  height: 67;
-  font-size: 35px;
+  transition: all .45s ease;
+  transform: scale(1.1);
 }
 
 /* ANSWER  */
@@ -229,7 +233,7 @@ body {
 
 .startPage h1 { 
   color: #fff;
-  font-size: 100px;
+  font-size: 5rem;
   margin-top: 120px;
 }
 
@@ -347,12 +351,11 @@ body {
 .startPage .submit:hover {
   background-color: var(--bg-button-hover);
   color: var(--color-btn-hover);
-  width: 210px;
-  height: 67px;
-  font-size: 35px;
+  transform: scale(1.06);
 }
 
 .divBotoes {
   display: flex;
   gap: 1rem;
+  margin-top: 5rem;
 }
