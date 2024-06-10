@@ -41,7 +41,7 @@ html {
 
 body {
   position: relative;
-  background-color: var(--bg-main);
+  background: rgba(41,114,252, 1);
   font-family: Super Creamy;
   overflow: hidden;
   width: 100%;
