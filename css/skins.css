@@ -145,7 +145,6 @@ h2 {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
 .skin-image.locked:hover::after {
     transition: all .45s ease;
     transform: translate(-50%, -50%) scale(1.3);
