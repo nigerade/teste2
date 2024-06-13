@@ -146,6 +146,7 @@ h2 {
     transform: translate(-50%, -50%);
 }
 
+
 .skin-image.locked:hover::after {
     transition: all .45s ease;
     transform: translate(-50%, -50%) scale(1.3);
@@ -182,7 +183,6 @@ h2 {
     padding: 20px;
     width: 80%; /* Largura do conteúdo */
 }
-
 .close {
     color: #aaa;
     float: right;
@@ -195,6 +195,39 @@ h2 {
     text-decoration: none;
     cursor: pointer;
 }
+
+.modal-video {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo preto transparente (opcional) */
+}
+
+.modal-content-video {
+    background-color: transparent; /* Remove o fundo do container */
+    border: none; /* Remove a borda do container */
+    position: absolute; /* Posiciona o vídeo no centro */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; /* Ajuste a largura desejada */
+    max-width: 800px; /* Limita a largura máxima (opcional) */
+}
+
+.close {
+    color: #aaa;
+    position: absolute; /* Posiciona o botão de fechar */
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
 button {
     display: block;
     margin: 10px auto;
@@ -209,27 +242,27 @@ button#watchAdBtn {
     font-size: 20px;
     text-align: center;
 }
-
+/*
 button#buyBtn {
-    background-color: #1b3a8c; /* Azul */
+    background-color: #1b3a8c; 
     color: rgb(19, 9, 9);
     border: none;
     font-size: 20px;
 }
 button#buyBtn {
-    background-color: #008CBA; /* Azul */
+    background-color: #008CBA; 
     color: white;
     border: none;
 }
 
 button#confirmBuyBtn {
-    background-color: #4CAF50; /* Verde */
+    background-color: #4CAF50; 
     color: white;
     border: none;
 }
 
 button#cancelBuyBtn {
-    background-color: #f44336; /* Vermelho */
+    background-color: #f44336; 
     color: white;
     border: none;
-}
+}*/
