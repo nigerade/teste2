@@ -209,14 +209,15 @@ h2 {
 }
 
 .modal-content-video {
-    background-color: transparent; /* Remove o fundo do container */
+    background-color: rgba(0,0,0,0.8); /* Remove o fundo do container */
     border: none; /* Remove a borda do container */
     position: absolute; /* Posiciona o vídeo no centro */
+    padding-top: 125px; /* Espaçamento do topo */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Ajuste a largura desejada */
-    max-width: 800px; /* Limita a largura máxima (opcional) */
+    width: 100%; /* Ajuste a largura desejada */
+    height: 100%; /* Preenche a altura da tela */
 }
 
 .close {
@@ -242,6 +243,7 @@ button#watchAdBtn {
     font-size: 20px;
     text-align: center;
 }
+
 /*
 button#buyBtn {
     background-color: #1b3a8c; 

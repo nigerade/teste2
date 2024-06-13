@@ -66,6 +66,7 @@ watchAdBtn.onclick = function() {
     alert("Assistir Anúncio clicado!");
     modal.style.display = "none";
     buyModal.style.display = "none";
+    document.body.classList.remove('blurred');
     // Passa o ID da skin para unlockImage
     unlockImage(modal.dataset.skinId); 
 };
@@ -92,6 +93,7 @@ cancelBuyBtn.onclick = function() {
 watchAdBtn.addEventListener('click', function() {
     videoModal.style.display = "block";
     var video = videoModal.querySelector("video");
+    document.body.classList.remove('blurred');
     if (video.paused) {
         video.play(); // Inicia o vídeo se estiver pausado
 
@@ -100,6 +102,7 @@ watchAdBtn.addEventListener('click', function() {
         videoModal.style.display = "none";
         modal.style.display = "none"; // Esconde também o modal principal
         buyModal.style.display = "none"; // Esconde também o modal de compra
+        document.body.classList.remove('blurred');
         if (document.fullscreenElement) {
             document.exitFullscreen();
         }
