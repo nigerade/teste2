@@ -17,7 +17,7 @@
         </a>
 
         <div class="titleContainer">
-            <img src="./images/logo.png" alt="" width="500px">
+            <h1>QUEST</h1>
             <h2>Loja de Skins</h2>
 
             <p>
@@ -37,21 +37,76 @@
             </div>
 
             <div class="skin-card">
-                <div class="skin-image locked" onclick="unlockSkin(this)">
+                <div class="skin-image locked" id="cadeado">
                     <img src="./images/skin-secundariavitao-Fundo-Branco.png" alt="Vitão Skin 2">
                 </div>
                 <div class="skin-name">Vitão Skin 2</div>
             </div>
+            <!-- O Modal -->
+            <div id="myModal" class="modal">
+                <!-- Conteúdo do Modal -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <button id="watchAdBtn">Assistir Anúncio</button>
+                    <!--<button id="buyBtn">Comprar</button>-->
+                </div>
+            </div>
+            <div id="buyModal" class="modal">
+                <!-- Conteúdo do Segundo Modal -->
+                <div class="modal-content">
+                    <!--<span class="close">&times;</span>-->
+                    <p>Confirma a compra?</p>
+                    <button id="confirmBuyBtn">Confirmar</button>
+                    <button id="cancelBuyBtn">Cancelar</button>
+                </div>
+            </div>
+            <!-- Modal para exibir o vídeo -->
+            <div id="videoModal" class="modal-video">
+                <div class="modal-content-video">
+                    <span class="close">&times;</span>
+                    <video controls autoplay width="640" height="360">
+                        <source src="./images/VITAO_SAFADINHO.mp4" type="video/mp4">
+                        <!-- Adicione outras sources para outros formatos de vídeo se necessário -->
+                        Seu navegador não suporta vídeos HTML5.
+                    </video>
+                </div>
+            </div>
+
 
             <div class="skin-card">
-                <div class="skin-image locked" onclick="unlockSkin(this)">
+                <div class="skin-image locked" id="cadeado2">
                     <img src="./images/skin-primariakurata-Fundo-Branco.png" alt="Kurata Default">
                 </div>
                 <div class="skin-name">Kurata Default</div>
             </div>
+            <!-- Novas Skins -->
+            <div class="skin-card">
+                <div class="skin-image locked" id="cadeado3">
+                    <img src="./images/skin-PrimariaEdagr.png" alt="Edgar">
+                </div>
+                <div class="skin-name">Edgar</div>
+            </div>
+
+            <div class="skin-card">
+                <div class="skin-image locked" id="cadeado4">
+                    <img src="./images/skin-secundaria-Arnaldo.png" alt="Arnaldo">
+                </div>
+                <div class="skin-name">Arnaldo</div>
+            </div>
+
+            <div class="skin-card">
+                <div class="skin-image locked" id="cadeado5">
+                    <img src="./images/skin-primaria-Arnaldo.png" alt="Arnaldo Bixo">
+                </div>
+                <div class="skin-name">Arnaldo Bixo</div>
+            </div>
+
         </div>
     </div>
 
-    <script src="./javascript/skins.js"></script>
+
+
+    <script src="javascript/skins.js"></script>
 </body>
+
 </html>

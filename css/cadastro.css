@@ -1,0 +1,81 @@
+/* Toda a página */
+
+body {
+    margin: 0;
+
+    background: rgba(41, 114, 252, 1);
+
+    height: 100vh;
+}
+
+/* Barra de navegação */
+
+.registerPage-navbar {
+    display: flex;
+    justify-content: space-between;
+
+    height: 8vh;
+
+    padding: 0 5px;
+}
+
+.registerPage-navbar img {
+    width: 150px;
+}
+
+.registerPage-navbar ul {
+    display: flex;
+
+    list-style-type: none;
+}
+
+.registerPage-navbar ul li {
+    margin-right: 10px;
+
+    padding-right: 10px;
+
+    border-right: 1px solid #FFF;
+}
+
+.registerPage-navbar ul li:last-child {
+    border-right: none;
+}
+
+
+.registerPage-navbar a {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 18px;
+
+    padding: 5px;
+
+    border-radius: 5px;
+}
+
+/* Conteúdo da página */
+
+.registerPage-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 92vh;
+}
+
+.registerPage-content label {
+    color: #FFF;
+}
+
+.registerPage-content input {
+    padding: 3px;
+
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.registerPage-content input[type="submit"] {
+    border-radius: 5px;
+    border: 0;
+
+    font-size: 15px;
+}

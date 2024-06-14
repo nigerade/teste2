@@ -1,0 +1,355 @@
+@font-face {
+    font-family: Honey Crepes;
+    src: url(../fonts/Honey\ Crepes.ttf);
+}
+
+:root {
+    --bg-main: #2972FC;
+    --bg-question: #f3be80;
+    --bg-button: #fa9f34;
+    --bg-button-hover: #fdaa4a;
+    --bg-input-border: #a86921;
+    --bg-input-border-focus: #f8a240;
+
+    --color-text: #333333;
+    --color-time: #ffdbb0;
+    --color-time-left: #fe8900;
+    --color-title-answer: #fff;
+    --color-btn: #424242;
+    --color-btn-hover: #585757;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    position: relative;
+    min-height: 100vh;
+    height: 100vh;
+}
+
+body {
+    position: relative;
+    background: rgba(41, 114, 252, 1);
+    font-family: Super Creamy;
+    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    letter-spacing: .1em;
+    text-shadow: 2px 2px 2px #333;
+}
+
+.game {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* TIME  */
+.game .timeCountdown {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+.game .timeCountdown .timeIcon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.game .timeCountdown .timeIcon img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.game .timeCountdown .timeDetails {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 28px;
+    color: var(--color-time);
+}
+
+.game .timeCountdown .timeDetails .time-seconds {
+    color: var(--color-time-left);
+    font-family: 'Honey Crepes';
+}
+
+.game .timeCountdown .timeDetails .timer {
+    font-size: 40px;
+}
+
+/* TIME  */
+
+/* QUESTION  */
+.game .questions {
+    margin-top: 70px;
+    position: relative;
+    background-color: var(--bg-question);
+    font-size: 55px;
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* QUESTION  */
+
+/* ANSWER  */
+.game .answer {
+    margin: 50px auto 0;
+    position: relative;
+    /* background-color: yellow; */
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game .answer h3 {
+    color: var(--color-title-answer);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.game .answer #userInput {
+    width: 40%;
+    height: 50px;
+    padding: 10px;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 100px;
+    outline: none;
+    border: 3px solid var(--bg-input-border);
+}
+
+.game .answer #userInput:focus {
+    border: 5px solid var(--bg-input-border-focus);
+}
+
+.game .answer .submit {
+    cursor: pointer;
+    margin-top: 90px;
+    width: 220px;
+    height: 70px;
+    background-color: var(--bg-button);
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: var(--color-btn);
+    transition: all .45s ease;
+}
+
+.submit {
+    font-size: 2rem !important;
+    transition: all .45s ease;
+    color: #fff !important;
+}
+
+.game .answer .submit:hover {
+    transition: all .45s ease;
+    transform: scale(1.1);
+}
+
+/* ANSWER  */
+
+/* RESOULTS.HTML */
+.gameOver {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameOver h1 {
+    margin-top: 3rem;
+    font-size: 90px;
+    color: #fff;
+}
+
+.gameOver h3 {
+    margin-top: 5rem;
+    color: #ff9e9e;
+    font-size: 50px;
+}
+
+.gameOver .score-output {
+    margin-top: 2%;
+    font-size: 90px;
+    color: #ec0000;
+    font-family: Honey Crepes;
+}
+
+.gameOver .submit {
+    cursor: pointer;
+    margin-top: 3rem;
+    width: 320px;
+    height: 70px;
+    background-color: var(--bg-button);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: var(--color-btn);
+    box-shadow: 2px 2px 2px #555;
+}
+
+.gameOver .submit:hover {
+    transform: scale(1.06);
+}
+
+/* RESOULTS.HTML */
+
+/* INDEX START PAGE */
+.startPage {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.startPage h1 {
+    color: #fff;
+    font-size: 5rem;
+    margin-top: 120px;
+    letter-spacing: .1em;
+}
+
+.startPage .submit {
+    cursor: pointer;
+    width: 220px;
+    height: 70px;
+    background-color: var(--bg-button);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: var(--color-btn);
+}
+
+.startPage .submit:hover {
+    background-color: var(--bg-button-hover);
+    color: var(--color-btn-hover);
+    width: 210px;
+    height: 67;
+    font-size: 35px;
+}
+
+/* INDEX START PAGE */
+
+/* Mobile Friendy */
+
+@media only screen and (max-width: 950px) {
+    .game .timeCountdown .timeIcon {
+        position: relative;
+        width: 60px;
+        height: 60px;
+    }
+
+    .game .timeCountdown .timeDetails {
+        font-size: 20px;
+    }
+
+    .game .timeCountdown .timeDetails .timer {
+        font-size: 30px;
+    }
+
+    .game .questions {
+        font-size: 40px;
+    }
+
+    .game .answer {
+        width: 100%;
+    }
+
+    .game .answer #userInput {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .game .answer #userInput {
+        width: 90%;
+    }
+
+    .game .answer .submit {
+        margin-top: 90px;
+        width: 150px;
+        height: 70px;
+        display: flex;
+        font-size: 30px;
+    }
+
+    .game .answer .submit:hover {
+        width: 140px;
+        height: 67;
+        font-size: 27px;
+    }
+
+    .game .questions {
+        font-size: 30px;
+    }
+
+    .gameOver h1 {
+        margin-top: 60px;
+        font-size: 55px;
+    }
+
+    .gameOver h3 {
+        margin-top: 90px;
+        font-size: 40px;
+    }
+
+    .gameOver .score-output {
+        margin-top: 50px;
+        font-size: 60px;
+        color: #ec0000;
+        margin-bottom: 30px;
+    }
+}
+
+/* Atualize o seletor hover para incluir os novos botões */
+.startPage .submit:hover {
+    background-color: var(--bg-button-hover);
+    color: var(--color-btn-hover);
+    transform: scale(1.06);
+}
+
+
+.divBotoes {
+    display: flex;
+    gap: 1rem;
+    margin-top: 5rem;
+}
+
+h2 {
+    color: #fff;
+    font-size: 2.5rem !important;
+    letter-spacing: .1em;
+}
+
+
