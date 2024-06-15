@@ -10,7 +10,6 @@
     --bg-button-hover: #fdaa4a;
     --bg-input-border: #a86921;
     --bg-input-border-focus: #f8a240;
-
     --color-text: #333333;
     --color-time: #ffdbb0;
     --color-time-left: #fe8900;
@@ -351,5 +350,4 @@ h2 {
     font-size: 2.5rem !important;
     letter-spacing: .1em;
 }
-
 

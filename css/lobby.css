@@ -1,0 +1,134 @@
+:root {
+    --bg-main: #2972FC;
+    --bg-button: #fa9f34;
+    --bg-button-hover: #fdaa4a;
+    --color-text: #fff;
+    --color-btn: #424242;
+    --color-btn-hover: #585757;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--color-text);
+    font-family: 'Super Creamy';
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: .1em;
+    text-shadow: 2px 2px 2px #333;
+}
+
+.lobby {
+    text-align: center;
+    background-color: #2250D5;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+}
+
+.titleContainer h1 {
+    font-size: 5rem;
+    margin: 0;
+}
+
+.titleContainer h2 {
+    font-size: 2.5rem;
+    margin: 10px 0 30px;
+}
+
+.playersList {
+    margin: 20px 0;
+}
+
+.playersList h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.playersList ul {
+    list-style: none;
+    padding: 0;
+}
+
+.playersList li {
+    background-color: #e0e0e0;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 2rem;
+}
+
+.lobbyButtons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.lobbyButtons a {
+    text-decoration: none;
+    padding: 10px 20px;
+    /* Reduzi o padding */
+    border-radius: 10px;
+    color: var(--color-text);
+    background-color: var(--bg-button);
+    font-size: 1.2rem;
+    /* Reduzi o tamanho da fonte */
+    transition: all 0.3s ease;
+}
+
+.lobbyButtons a:hover {
+    background-color: var(--bg-button-hover);
+    color: var(--color-btn-hover);
+    transform: scale(1.1);
+}
+
+.cancelButton {
+    text-decoration: none;
+    padding: 10px 20px;
+    /* Reduzi o padding */
+    border-radius: 10px;
+    color: var(--color-text);
+    background-color: var(--bg-button);
+    font-size: 1.2rem;
+    /* Reduzi o tamanho da fonte */
+    transition: all 0.3s ease;
+}
+
+.cancelButton:hover {
+    background-color: var(--bg-button-hover);
+    color: var(--color-btn-hover);
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .titleContainer h1 {
+        font-size: 3rem;
+    }
+
+    .titleContainer h2 {
+        font-size: 1.5rem;
+    }
+
+    .playersList h3 {
+        font-size: 1.5rem;
+    }
+
+    .playersList li {
+        font-size: 1rem;
+        padding: 8px;
+    }
+
+    .lobbyButtons a, .cancelButton {
+        padding: 8px 16px;
+        /* Reduzi o padding */
+        font-size: 1rem;
+        /* Reduzi o tamanho da fonte */
+    }
+}

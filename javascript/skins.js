@@ -22,39 +22,49 @@ var videoModal = document.getElementById("videoModal");
 var videoModalClose = videoModal.querySelector(".close");
 // Pega o botão "Assistir Anúncio"
 var watchAdBtn = document.getElementById("watchAdBtn");
+
+// Alterna entre os vídeos
+var videos = ["./images/vitaoVideo1.mp4", "./images/vitaoVideo2.mp4", "./images/videoKurata1.mp4"];
+var currentVideoIndex = 0;
+
+function toggleVideoSource() {
+    currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+    var videoElement = document.getElementById("adVideo");
+    videoElement.src = videos[currentVideoIndex];
+}
+
 // Quando o usuário clicar no cadeado, abre o modal
-cadeado.onclick = function() {
+cadeado.onclick = function () {
     modal.style.display = "block";
     modal.dataset.skinId = "cadeado";
 }
-cadeado2.onclick = function() {
+cadeado2.onclick = function () {
     modal.style.display = "block";
     modal.dataset.skinId = "cadeado2";
 }
-cadeado3.onclick = function() {
+cadeado3.onclick = function () {
     modal.style.display = "block";
     modal.dataset.skinId = "cadeado3";
 }
-cadeado4.onclick = function() {
+cadeado4.onclick = function () {
     modal.style.display = "block";
     modal.dataset.skinId = "cadeado4";
 }
-cadeado5.onclick = function() {
+cadeado5.onclick = function () {
     modal.style.display = "block";
     modal.dataset.skinId = "cadeado5";
 }
 
 // Quando o usuário clicar no <span> (x), fecha o modal
-Array.from(spans).forEach(function(span) {
-    span.onclick = function() {
+Array.from(spans).forEach(function (span) {
+    span.onclick = function () {
         modal.style.display = "none";
         buyModal.style.display = "none";
     };
 });
 
-
 // Quando o usuário clicar em qualquer lugar fora do modal, fecha o modal
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     } else if (event.target == buyModal) {
@@ -62,12 +72,12 @@ window.onclick = function(event) {
     }
 }
 // Event listeners para os botões do primeiro modal
-watchAdBtn.onclick = function() {
-    alert("Assistir Anúncio clicado!");
+watchAdBtn.onclick = function () {
+    alert("Assistir Anúncio Clicado!");
     modal.style.display = "none";
     buyModal.style.display = "none";
     // Passa o ID da skin para unlockImage
-    unlockImage(modal.dataset.skinId); 
+    unlockImage(modal.dataset.skinId);
 };
 /*
 buyBtn.onclick = function() {
@@ -83,41 +93,37 @@ confirmBuyBtn.onclick = function() {
     unlockImage(modal.dataset.skinId); 
 };
 
-
 cancelBuyBtn.onclick = function() {
     buyModal.style.display = "none";
 }*/
 
 // Event listener para abrir o modal do vídeo ao clicar em "Assistir Anúncio"
-watchAdBtn.addEventListener('click', function() {
+watchAdBtn.addEventListener('click', function () {
+    toggleVideoSource(); // Alterna o vídeo antes de exibir o modal
     videoModal.style.display = "block";
     var video = videoModal.querySelector("video");
     if (video.paused) {
         video.play(); // Inicia o vídeo se estiver pausado
-
     }
-    video.addEventListener('ended', function() {
+    video.addEventListener('ended', function () {
         videoModal.style.display = "none";
         modal.style.display = "none"; // Esconde também o modal principal
         buyModal.style.display = "none"; // Esconde também o modal de compra
         if (document.fullscreenElement) {
             document.exitFullscreen();
         }
-        unlockImage(modal.dataset.skinId); 
-
+        unlockImage(modal.dataset.skinId);
     });
 });
+
 function unlockImage(skinId) {
     var imageToUnlock = document.getElementById(skinId);
     if (imageToUnlock && imageToUnlock.classList.contains('locked')) {
         imageToUnlock.classList.remove('locked');
     }
 }
-// Event listener para fechar o modal do vídeo ao clicar no botão de fechar
-videoModalClose.onclick = function() {
 
+// Event listener para fechar o modal do vídeo ao clicar no botão de fechar
+videoModalClose.onclick = function () {
+    videoModal.style.display = "none";
 };
-        // Adiciona um evento de clique ao elemento com o ID 'cadeado'
-        document.getElementById('watchAdBtn').addEventListener('click', function() {
-          
-        });

@@ -2,9 +2,8 @@
 
 body {
     margin: 0;
-
+    font-family: Super Creamy;
     background: rgba(41, 114, 252, 1);
-
     height: 100vh;
 }
 
@@ -58,8 +57,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    height: 92vh;
+    background-color: #2250D5;
+    width: 350px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 2px 2px 2px #222;
+    margin-top: 5rem;
+    
 }
 
 .registerPage-content label {
@@ -68,14 +73,25 @@ body {
 
 .registerPage-content input {
     padding: 3px;
-
-    margin-top: 3px;
-    margin-bottom: 5px;
+    width: 250px;
+    height: 30px;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 3px;
 }
 
 .registerPage-content input[type="submit"] {
     border-radius: 5px;
     border: 0;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: Super Creamy;
+    height: 50px;
+    margin-top: 3rem;
+}
 
-    font-size: 15px;
+.registerPage-content input[type="submit"]:hover {
+    transform: scale(1.06);
+    transition: all .45s ease;
 }

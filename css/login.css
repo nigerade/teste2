@@ -2,9 +2,8 @@
 
 body {
     margin: 0;
-
-    background: rgba(41, 114, 252, 1);
-
+    font-family: Super Creamy !important;
+    background: rgba(41, 114, 252, 1);  
     height: 100vh;
 }
 
@@ -64,24 +63,41 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    height: 92vh;
+    width: 300px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 2rem;
+    box-shadow: 2px 2px 2px #222;
+    background-color: #2250D5;
+    margin-top: 10rem;
 }
 
 .loginPage-content label {
     color: #FFF;
+    font-size: 1rem;
 }
 
 .loginPage-content input {
     padding: 3px;
-
     margin-top: 3px;
     margin-bottom: 5px;
+    border: none;
+    width: 240px;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 2rem;
 }
 
 .loginPage-content input[type="submit"] {
     border-radius: 5px;
     border: 0;
+    box-shadow: 2px 2px 2px #222;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: Super Creamy !important;
+}
 
-    font-size: 15px;
+.loginPage-content input[type="submit"]:hover {
+    transform: scale(1.06);
+    transition: all .45s ease;
 }

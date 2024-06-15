@@ -184,14 +184,15 @@ h2 {
     justify-content: center;
     align-items: center;
     background-color: #2250D5;
-    border-radius: 35px;
+    border-radius: 10px;
     border: 5px solid #fff;
     margin: auto;
     flex-wrap: wrap;
     margin: 15% auto;
     /* 15% do topo e centralizado */
     padding: 20px;
-    width: 80%;
+    width: 20%;
+    height: ;
     /* Largura do conteúdo */
 }
 
@@ -201,6 +202,7 @@ h2 {
     font-size: 28px;
     font-weight: bold;
 }
+
 .close:hover,
 .close:focus {
     color: black;
@@ -223,7 +225,7 @@ h2 {
 }
 
 .modal-content-video {
-    background-color: rgba (0, 0, 0, 0.01);
+    background-color: transparent;
     /* Remove o fundo do container */
     border: none;
     /* Remove a borda do container */
@@ -236,16 +238,13 @@ h2 {
     /* Ajuste a largura desejada */
     max-width: 800px;
     /* Limita a largura máxima (opcional) */
-    padding: 125px;
 }
 
 .close {
-    color: #aaa;
-    position: absolute;
+    color: red;
+    position: relative;
     /* Posiciona o botão de fechar */
-    top: 10px;
-    right: 20px;
-    font-size: 8rem;
+    font-size: 3rem;
     font-weight: bold;
 }
 
@@ -265,6 +264,11 @@ button#watchAdBtn {
     font-size: 20px;
     text-align: center;
     border-radius: 10px;
+}
+
+button#watchAdBtn:hover {
+    transition: all .45s ease;
+    transform: scale(1.06);
 }
 
 /*
