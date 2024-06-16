@@ -43,7 +43,6 @@
 .modal-content .head {
   position: relative;
   z-index: 20;
-  background-color: rgba(0, 0, 0, 0.589);
   color: red;
   padding: 20px;
   text-align: center;
@@ -58,19 +57,16 @@
   height: 100px;
   background-color: var(--bg-button);
   border: 5px solid black;
-  border-radius: 100px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 40px;
-  color: var(--color-btn);
+  color: #fff;
 }
 .btn-again:hover {
-  background-color: var(--bg-button-hover);
-  color: var(--color-btn-hover);
-  width: 240px;
-  height: 77;
-  font-size: 35px;
+  transition: all .45s ease;
+  transform: scale(1.06);
 }
 
 @media only screen and (max-width: 950px) {
