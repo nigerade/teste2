@@ -2,37 +2,109 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/lobby.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <title>QUEST - Lobby</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/home.css">
+  <link rel="stylesheet" href="./css/lobby.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <title>QUEST - Lobby</title>
 </head>
 
 <body>
-    <div class="lobby">
-        <div class="titleContainer">
-            <h1>QUEST</h1>
-            <h2>Bem vindo ao Lobby!</h2>
-        </div>
-
-        <div class="playersList">
-            <h3>Jogadores:</h3>
-            <ul>
-                <li>Vitao_Dont_Fuck_With_ME</li>
-                <br>
-                <li>Kurata_GMAT_Neles</li>
-            </ul>
-        </div>
-
-        <div class="lobbyButtons">
-            <a href="./game.html" class="startButton submit">Iniciar</a>
-
-            <a href="./introducao.html" class="cancelButton submit">Voltar</a>
-        </div>
+  <div class="lobby">
+    <div class="titleContainer">
+      <h1>QUEST</h1>
+      <h2>Bem vindo ao Lobby!</h2>
     </div>
+
+    <div class="playersList">
+      <h3>Jogadores:</h3>
+      <ul>
+        <li id="jogador1" class="editable" onclick="editarNome(this)">Insira seu Nome</li>
+        <li id="jogador2">Jogador 2</li>
+      </ul>
+    </div>
+
+    <div class="lobbyButtons">
+      <a href="./game.html" id="startButton" class="startButton submit disabled"
+        onclick="return verificarInicioJogo()">Iniciar</a>
+      <a href="./introducao.html" class="cancelButton submit">Voltar</a>
+    </div>
+  </div>
+
+  <script>
+    // Array de nomes fictícios para jogadores
+    const nomes = ["Kurata", "Edgar", "Banin", "Antonio", "Getulio", "Dagoberto", "Tsai", "Aristides", "Shigueo", "Shigueia"];
+
+    // Função para gerar um nome aleatório da lista
+    function gerarNomeAleatorio() {
+      return nomes[Math.floor(Math.random() * nomes.length)];
+    }
+
+    // Função para validar se o nome é válido
+    function validarNome(nome) {
+      // Verifica se o nome não está vazio e não é igual a "Insira seu Nome"
+      return nome.trim() !== '' && nome.trim() !== 'Insira seu Nome';
+    }
+
+    // Função chamada ao clicar no <li> para editar o nome do jogador 1
+    function editarNome(element) {
+      // Se já estiver editando, aborta
+      if (element.querySelector('input')) {
+        return;
+      }
+
+      // Cria um campo de entrada
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = element.textContent.trim();
+
+      input.addEventListener('keyup', function (event) {
+        if (event.key === 'Enter') {
+          const novoNome = input.value.trim();
+          if (validarNome(novoNome)) {
+            element.textContent = novoNome;
+            input.parentNode.removeChild(input);
+            validarInicioJogo(); // Validar o botão de iniciar após mudar o nome
+          } else {
+            alert('Por favor, insira um nome válido (não pode estar vazio e não pode ser "Insira seu Nome").');
+            element.textContent = 'Insira seu Nome';
+            input.focus(); // Devolve o foco para o input
+          }
+        }
+      });
+
+      element.textContent = '';
+      element.appendChild(input);
+      input.focus();
+    }
+
+    // Função para validar se o nome do jogador 1 é válido e habilitar o botão de iniciar
+    function validarInicioJogo() {
+      const jogador1 = document.getElementById('jogador1').textContent.trim();
+      const startButton = document.getElementById('startButton');
+      if (validarNome(jogador1)) {
+        startButton.classList.remove('disabled');
+      } else {
+        startButton.classList.add('disabled');
+      }
+    }
+
+    // Verifica se o jogo pode iniciar ao clicar no botão de iniciar
+    function verificarInicioJogo() {
+      const jogador1 = document.getElementById('jogador1').textContent.trim();
+      if (validarNome(jogador1)) {
+        return true; // Permite iniciar o jogo
+      } else {
+        alert('Por favor, insira um nome válido para o Jogador 1.');
+        return false; // Impede iniciar o jogo
+      }
+    }
+
+    // Atualiza o nome do jogador 2 com um nome aleatório ao carregar a página
+    document.getElementById('jogador2').textContent = gerarNomeAleatorio();
+  </script>
 </body>
 
 </html>

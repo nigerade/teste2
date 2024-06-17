@@ -79,23 +79,6 @@ watchAdBtn.onclick = function () {
     // Passa o ID da skin para unlockImage
     unlockImage(modal.dataset.skinId);
 };
-/*
-buyBtn.onclick = function() {
-    modal.style.display = "none";
-    buyModal.style.display = "block";
-}
-
-// Event listeners para os botões do segundo modal
-confirmBuyBtn.onclick = function() {
-    alert("Compra confirmada!");
-    buyModal.style.display = "none";
-    // Passa o ID da skin para unlockImage
-    unlockImage(modal.dataset.skinId); 
-};
-
-cancelBuyBtn.onclick = function() {
-    buyModal.style.display = "none";
-}*/
 
 // Event listener para abrir o modal do vídeo ao clicar em "Assistir Anúncio"
 watchAdBtn.addEventListener('click', function () {

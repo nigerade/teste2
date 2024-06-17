@@ -132,3 +132,14 @@ body {
         /* Reduzi o tamanho da fonte */
     }
 }
+
+.playersList input {
+    border: none;
+    padding: 1rem;
+    font-weight: bold;
+    font-family: Super Creamy;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #424242;
+}
+
